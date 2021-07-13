@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <global-header :user="userInfo"></global-header>
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     <ColumnList :list="list"/>
@@ -10,6 +11,8 @@
 import { defineComponent } from 'vue'
 // import HelloWorld from './components/HelloWorld.vue'
 import ColumnList, { ColumnProps } from './components/ColumnList.vue'
+import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 const testData: ColumnProps[] = [
   {
@@ -55,15 +58,21 @@ const testData: ColumnProps[] = [
     avatar: 'https://gitlab.forensix.cn/uploads/-/system/user/avatar/146/avatar.png?width=400'
   }
 ]
+const userInfo: UserProps = {
+  isLogion: true,
+  name: '莉莉'
+}
 export default defineComponent({
   name: 'App',
   components: {
     // HelloWorld,
-    ColumnList
+    ColumnList,
+    GlobalHeader
   },
   setup () {
     return {
-      list: testData
+      list: testData,
+      userInfo: userInfo
     }
   }
 })
@@ -76,6 +85,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
