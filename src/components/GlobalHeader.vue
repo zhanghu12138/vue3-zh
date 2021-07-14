@@ -9,7 +9,17 @@
         <button class="btn btn-outline-primary mx-2" type="submit">注册</button>
       </div>
       <div v-else>
-        <dropdown :title="user.name"></dropdown>
+        <dropdown :title="user.name">
+          <dropdown-item>
+              <a class="dropdown-item" href="#">新建文章</a>
+          </dropdown-item>
+          <dropdown-item disabled>
+              <a class="dropdown-item" href="#">编辑资料</a>
+          </dropdown-item>
+          <dropdown-item>
+              <a class="dropdown-item" href="#">退出登录</a>
+          </dropdown-item>
+        </dropdown>
       </div>
     </div>
   </nav>
@@ -18,6 +28,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import Dropdown from './Dropdown.vue'
+import DropdownItem from './DropdownItem.vue'
 export interface UserProps {
   isLogion: boolean,
   name?: string,
@@ -32,7 +43,8 @@ export default defineComponent({
     }
   },
   components: {
-    Dropdown
+    Dropdown,
+    DropdownItem
   }
 })
 </script>
