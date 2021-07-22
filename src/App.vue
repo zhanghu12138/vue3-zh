@@ -1,18 +1,20 @@
 <template>
   <div class="container">
     <global-header :user="userInfo"></global-header>
+    <router-view></router-view>
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     <ColumnList :list="list"/>
+    <login-form></login-form>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
 // import HelloWorld from './components/HelloWorld.vue'
 import ColumnList, { ColumnProps } from './components/ColumnList.vue'
 import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
-
+import loginForm from '@/views/Form.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 const testData: ColumnProps[] = [
   {
@@ -62,17 +64,25 @@ const userInfo: UserProps = {
   isLogion: true,
   name: '莉莉'
 }
+
 export default defineComponent({
   name: 'App',
   components: {
     // HelloWorld,
     ColumnList,
-    GlobalHeader
+    GlobalHeader,
+    loginForm
   },
   setup () {
+    const emailRef = reactive({
+      val: '',
+      error: false,
+      message: ''
+    })
     return {
       list: testData,
-      userInfo: userInfo
+      userInfo: userInfo,
+      emailRef
     }
   }
 })
