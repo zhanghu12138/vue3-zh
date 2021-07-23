@@ -6,13 +6,11 @@
           <img :src="column.avatar" class="rounded-circle border border-light w-25 my-3">
           <h5 class="card-title">{{column.title}}</h5>
           <p class="card-text text-left">{{column.description}}</p>
-          <a href="#" class="btn btn-outline-primary">Go somewhere</a>
+          <router-link :to="{name: 'column', params: { id:column.id }}">
+            <a href="#" class="btn btn-outline-primary">Go somewhere</a>
+          </router-link>
         </div>
       </div>
-      <!-- <img :src="column.avatar">
-      <h5>{{column.title}}</h5>
-      <p>{{column.description}}</p>
-      <a href="#">进入专栏</a> -->
     </div>
   </div>
 </template>
