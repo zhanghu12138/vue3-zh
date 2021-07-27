@@ -40,7 +40,6 @@ export default defineComponent({
     const passwordVal = ref('')
     const router = useRouter()
     const submitForm = (result: boolean) => {
-      console.log('1234', result)
       if (result) router.push({ name: 'column', params: { id: 123 } })
     }
     return {

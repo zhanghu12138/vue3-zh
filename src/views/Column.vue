@@ -1,6 +1,5 @@
 <template>
   <div>
-    <pre>{{router}}</pre>
   </div>
 </template>
 

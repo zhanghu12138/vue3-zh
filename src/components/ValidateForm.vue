@@ -21,11 +21,9 @@ export default defineComponent({
     let funcArr: ValidateFunc[] = []
     const submitForm = () => {
       const result = funcArr.map(func => func()).every(item => item)
-      console.log(result)
       context.emit('form-submit', result)
     }
     const callback = (func: any) => {
-      console.log(func)
       funcArr.push(func)
     }
     emitter.on('form-item-create', callback)

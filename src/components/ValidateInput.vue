@@ -51,7 +51,6 @@ export default defineComponent({
               break
             case 'length':
               if (rule.length) {
-                console.log(rule.length)
                 passed = inputRef.val.trim().length >= rule.length
               }
               break

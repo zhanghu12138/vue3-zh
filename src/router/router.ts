@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
+import { nextTick } from 'vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -22,5 +23,10 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+router.beforeEach((to, from, next) => {
+  console.log('to', to)
+  console.log('from', from)
+  next()
 })
 export default router
